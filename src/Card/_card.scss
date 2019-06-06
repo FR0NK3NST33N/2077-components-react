@@ -1,0 +1,31 @@
+@import "../_global.scss";
+
+.card {
+    background-color: transparent;
+    border: 3px solid $default;
+    //border: 3px solid #fff;
+    border-radius: none;
+    color: $default;
+
+    &.fill {
+        background-color: $default;
+        color: $background;
+    }
+
+    &.is-light {
+        color: $white;
+    }
+
+    &.has-glow {
+        text-shadow: 0 0 3px $default;
+        box-shadow: 0 0 3px $default;
+    }
+}
+
+.card.is-red {
+    @extend %is-red;
+}
+
+.card.is-white {
+    @extend %is-white;
+}

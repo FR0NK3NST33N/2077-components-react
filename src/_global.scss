@@ -1,20 +1,65 @@
 // Colors
 $background: #2d2a2e;
-$default: #CAF0E9;
-$white: #FFF;
-$red: #e60058;
-$green: #6EF990;
-$green2: #09dc3e;
-$blue: #05DBF5;
-$blue2: #21EDFC;
-$purple: #9220C5;
-$orange: #FFD866;
-$qrcolor: #6EF990;
+$default: #caf0e9;
+$white: #fff;
+$red: #ED017F; //#e60058;
+$green: #0CFF46; //#6ef990;
+//$green2: #09dc3e;
+$blue: #09FFFF; //#05dbf5;
+//$blue2:  #09FFFF;//#57F0F8; //#93B6E1; //#21edfc;
+$purple: #B84CFF; //#A37BD8; //#9220c5;
+$pink: #FB70FF;
+$orange: #FDCB59; //#F5A51A;//#ffd866;
+$qrcolor: #6ef990;
+
+%is-red {
+    background-color: transparent;
+    border: 3px solid $red;
+    //border: 3px solid #fff;
+    border-radius: none;
+    color: $red;
+
+    &.fill {
+        background-color: $red;
+        color: $background;
+    }
+
+    &.is-light {
+        color: $white;
+    }
+
+    &.has-glow {
+        text-shadow: 0 0 3px $red;
+        box-shadow: 0 0 3px $red;
+    }
+}
+
+%is-white {
+    background-color: transparent;
+    border: 3px solid $white;
+    //border: 3px solid #fff;
+    border-radius: none;
+    color: $white;
+
+    &.fill {
+        background-color: $white;
+        color: $background;
+    }
+
+    &.is-light {
+        color: $white;
+    }
+
+    &.has-glow {
+        text-shadow: 0 0 3px $white;
+        box-shadow: 0 0 3px $white;
+    }
+}
 
 @function randomNum($min, $max) {
     $rand: random();
     $randomNum: $min + floor($rand * (($max - $min) + 1));
-  
+
     @return $randomNum;
 }
 
@@ -23,14 +68,16 @@ $qrcolor: #6EF990;
     display: block;
     max-width: 100%;
     overflow: hidden;
+
     .qrCode {
-      display: block;
-      font-size: 8px; /* change the size of this to see how ralph will scale up or down */
-      height: 1em;
-      width: 1em;
-      margin: 0 0em 1em 0;
-      //float: left;
-      box-shadow:
+        display: block;
+        font-size: 8px;
+        /* change the size of this to see how ralph will scale up or down */
+        height: 1em;
+        width: 1em;
+        margin: 0 0em 1em 0;
+        //float: left;
+        box-shadow: #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
@@ -58,86 +105,6 @@ $qrcolor: #6EF990;
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
         #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
-        #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor,
-        #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor
-    }
-    .qrCode0 {
-      //position: relative;
-      display: block;
-      font-size: 8px; /* change the size of this to see how ralph will scale up or down */
-      height: 1em;
-      width: 1em;
-      margin: 0 0em 1em 0;
-      //float: left;
-      box-shadow:
-      
-       /* row 1 */ 0em 0em $qrcolor, 3em 0em $qrcolor,
-        6em 0em $qrcolor, 7em 0em $qrcolor, 2em 0em $qrcolor, 12em 0em $qrcolor,
-        15em 0em $qrcolor, 16em 0em $qrcolor, 3em 0em $qrcolor,
-        22em 0em $qrcolor, 24em 0em $qrcolor, 29em 0em $qrcolor,
-        45em 0em $qrcolor, 34em 0em $qrcolor, /* row 2 */ 0em 1em $qrcolor,
-        1em 1em $qrcolor, 3em 1em $qrcolor, 5em 1em $qrcolor, 0em 1em $qrcolor,
-        12em 1em $qrcolor, 13em 1em $qrcolor, 15em 1em $qrcolor,
-        16em 1em $qrcolor, 3em 1em $qrcolor, 21em 1em $qrcolor,
-        23em 1em $qrcolor, 24em 1em $qrcolor, 43em 1em $qrcolor,
-        42em 1em $qrcolor, 39em 1em $qrcolor, 27em 1em $qrcolor,
-        28em 1em $qrcolor, 29em 1em $qrcolor;
-    }
-    .qrCode1 {
-      //position: relative;
-      display: block;
-      font-size: 8px; /* change the size of this to see how ralph will scale up or down */
-      height: 1em;
-      width: 1em;
-      margin: 0 0em 1em 0;
-      //float: left;
-      box-shadow: 0em 0em $qrcolor, 1em 0em $qrcolor, 6em 0em $qrcolor,
-        9em 0em $qrcolor, 11em 0em $qrcolor, 12em 0em $qrcolor,
-        14em 0em $qrcolor, 16em 0em $qrcolor, 17em 0em $qrcolor,
-        18em 0em $qrcolor, 19em 0em $qrcolor, 20em 0em $qrcolor,
-        23em 0em $qrcolor,
-        // 24em  0em $qrcolor,
-          25em 0em $qrcolor,
-        30em 0em $qrcolor, 39em 0em $qrcolor, 35em 0em $qrcolor,
-        36em 0em $qrcolor, 38em 0em $qrcolor, 40em 0em $qrcolor,
-        41em 0em $qrcolor, 46em 0em $qrcolor, 43em 0em $qrcolor,
-        47em 0em $qrcolor, 49em 0em $qrcolor, 1em 1em $qrcolor, 3em 1em $qrcolor,
-        5em 1em $qrcolor, 8em 1em $qrcolor, 10em 1em $qrcolor, 12em 1em $qrcolor,
-        13em 1em $qrcolor, 15em 1em $qrcolor, 16em 1em $qrcolor,
-        18em 1em $qrcolor, 19em 1em $qrcolor, 21em 1em $qrcolor,
-        23em 1em $qrcolor, 24em 1em $qrcolor, 25em 1em $qrcolor,
-        27em 1em $qrcolor, 29em 1em $qrcolor, 34em 1em $qrcolor,
-        32em 1em $qrcolor, 36em 1em $qrcolor, 37em 1em $qrcolor,
-        39em 1em $qrcolor, 40em 1em $qrcolor, 42em 1em $qrcolor,
-        43em 1em $qrcolor, 45em 1em $qrcolor, 50em 1em $qrcolor,
-        26em 1em $qrcolor;
-    }
-    .qrCode2 {
-      //position: relative;
-      display: block;
-      font-size: 8px; /* change the size of this to see how ralph will scale up or down */
-      height: 1em;
-      width: 1em;
-      margin: 0 0em 1em 0;
-      //float: left;
-      box-shadow:
-        
-         /* row 1 */ 0em 0em $qrcolor, 1em 0em $qrcolor,
-        6em 0em $qrcolor, 9em 0em $qrcolor, 11em 0em $qrcolor, 12em 0em $qrcolor,
-        14em 0em $qrcolor, 16em 0em $qrcolor, 17em 0em $qrcolor,
-        18em 0em $qrcolor, 19em 0em $qrcolor, 20em 0em $qrcolor,
-        23em 0em $qrcolor,
-        // 24em  0em $qrcolor,
-          25em 0em $qrcolor,
-        30em 0em $qrcolor, 39em 0em $qrcolor, 35em 0em $qrcolor,
-        36em 0em $qrcolor, 38em 0em $qrcolor, 40em 0em $qrcolor,
-        41em 0em $qrcolor, 46em 0em $qrcolor, 43em 0em $qrcolor,
-        47em 0em $qrcolor, 49em 0em $qrcolor, /* row 2 */ 0em 1em $qrcolor,
-        1em 1em $qrcolor, 3em 1em $qrcolor, 5em 1em $qrcolor, 0em 1em $qrcolor,
-        12em 1em $qrcolor, 13em 1em $qrcolor, 15em 1em $qrcolor,
-        16em 1em $qrcolor, 3em 1em $qrcolor, 21em 1em $qrcolor,
-        23em 1em $qrcolor, 28em 1em $qrcolor, 29em 1em $qrcolor,
-        33em 1em $qrcolor, 35em 1em $qrcolor, 36em 1em $qrcolor,
-        40em 1em $qrcolor, 41em 1em $qrcolor, 44em 1em $qrcolor;
+        #{randomNum(0, 50)}em #{randomNum(0, 1)}em $qrcolor;
     }
 }
